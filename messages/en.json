@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "title": "Level up your learning journey.",
+    "description": "The gamified learning platform for Telegram communities. Earn XP, maintain streaks, and master your subjects with AI assistance.",
+    "start_learning": "Start Learning Now"
+  },
+  "Navigation": {
+    "login": "Log in",
+    "get_started": "Get Started",
+    "home": "Home",
+    "leaderboard": "Leaderboard",
+    "practice": "Practice Zone",
+    "tutor": "AI Tutor",
+    "profile": "Profile",
+    "logout": "Logout"
+  }
+}

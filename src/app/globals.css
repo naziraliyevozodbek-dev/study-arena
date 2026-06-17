@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f4f6; /* light gray/blue background for the app */
+  --foreground: #111827; /* dark text */
+  --surface: #ffffff;
+  --surface-foreground: #1f2937;
+  
+  --primary: #58cc02; /* Duolingo green */
+  --primary-foreground: #ffffff;
+  --primary-hover: #46a302;
+  --primary-border: #46a302;
+
+  --secondary: #1cb0f6; /* Bright blue */
+  --secondary-foreground: #ffffff;
+  --secondary-hover: #1899d6;
+  --secondary-border: #1899d6;
+
+  --destructive: #ff4b4b; /* Red */
+  --destructive-foreground: #ffffff;
+  --destructive-hover: #e83a3a;
+  --destructive-border: #ea2b2b;
+
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
+
+  --card: #ffffff;
+  --card-foreground: #111827;
+
+  --border: #e5e7eb;
+  --input: #f3f4f6;
+  --ring: #58cc02;
+
+  --radius: 1rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-border: var(--secondary-border);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-border: var(--destructive-border);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-xl: var(--radius);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111827; /* dark mode background */
+    --foreground: #f9fafb;
+    --surface: #1f2937;
+    --surface-foreground: #f9fafb;
+    
+    --card: #1f2937;
+    --card-foreground: #f9fafb;
+
+    --border: #374151;
+    --input: #374151;
+
+    --muted: #374151;
+    --muted-foreground: #9ca3af;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Gamified Button Base Classes */
+@layer components {
+
+  .gamified-card {
+    @apply bg-card text-card-foreground rounded-2xl border-2 border-border shadow-sm;
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "title": "Ta'lim yo'lingizni yangi bosqichga olib chiqing.",
+    "description": "Telegram jamoalari uchun o'yinlashtirilgan ta'lim platformasi. Tajriba ballarini (XP) to'plang, o'zlashtirish zanjirini (streak) saqlab qoling va AI yordamida bilimingizni oshiring.",
+    "start_learning": "Hozir o'rganishni boshlash"
+  },
+  "Navigation": {
+    "login": "Kirish",
+    "get_started": "Boshlash",
+    "home": "Asosiy",
+    "leaderboard": "Peshqadamlar",
+    "practice": "Mashq qilish",
+    "tutor": "AI O'qituvchi",
+    "profile": "Profil",
+    "logout": "Chiqish"
+  }
+}
