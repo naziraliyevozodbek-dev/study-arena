@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Confetti } from "@/components/ui/confetti";
 import { CheckCircle, XCircle } from "lucide-react";
+import { useTelegram } from "@/components/auth/TelegramProvider";
 
 interface MatchPair {
   id: string;
@@ -13,6 +14,7 @@ interface MatchPair {
 }
 
 export function MatchingGame({ pairs, onComplete }: { pairs: MatchPair[], onComplete?: () => void }) {
+  const { haptic } = useTelegram();
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
   const [matchedIds, setMatchedIds] = useState<string[]>([]);
@@ -27,12 +29,14 @@ export function MatchingGame({ pairs, onComplete }: { pairs: MatchPair[], onComp
 
   const handleLeftClick = (id: string) => {
     if (matchedIds.includes(id)) return;
+    haptic.selection();
     setSelectedLeft(id);
     checkMatch(id, selectedRight);
   };
 
   const handleRightClick = (id: string) => {
     if (matchedIds.includes(id)) return;
+    haptic.selection();
     setSelectedRight(id);
     checkMatch(selectedLeft, id);
   };
@@ -42,6 +46,7 @@ export function MatchingGame({ pairs, onComplete }: { pairs: MatchPair[], onComp
 
     if (leftId === rightId) {
       // Match found!
+      haptic.success();
       setMatchedIds(prev => {
         const newMatched = [...prev, leftId];
         if (newMatched.length === pairs.length) {
@@ -55,6 +60,7 @@ export function MatchingGame({ pairs, onComplete }: { pairs: MatchPair[], onComp
       setErrorIds(null);
     } else {
       // Mismatch
+      haptic.error();
       setErrorIds({ left: leftId, right: rightId });
       setTimeout(() => {
         setSelectedLeft(null);
