@@ -13,7 +13,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     if (isTelegramApp) {
-      router.push('/login');
+      router.push('/twa');
     }
   }, [isTelegramApp, router]);
 

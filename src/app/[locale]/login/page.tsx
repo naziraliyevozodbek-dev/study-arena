@@ -25,8 +25,8 @@ export default function LoginPage() {
       const data = await response.json();
       
       if (response.ok && data.success) {
-        // Mock successful login - route to student dashboard for now
-        router.push('/dashboard/student');
+        // Mock successful login - route to TWA for now
+        router.push('/twa');
       } else {
         setError(data.error || 'Authentication failed');
       }
