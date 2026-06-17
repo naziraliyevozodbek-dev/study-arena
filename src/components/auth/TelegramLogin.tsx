@@ -48,8 +48,12 @@ export function TelegramLogin({
       .then(data => {
         if (data.success && user) {
           onAuth({ ...user, auth_date: Math.floor(Date.now() / 1000) });
+        } else {
+          // Fallback if TWA validation fails for some reason
+          console.error("TWA Auth failed", data.error);
         }
       })
+      .catch(err => console.error("TWA Auth request failed", err))
       .finally(() => setLoading(false));
       return;
     }

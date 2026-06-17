@@ -37,11 +37,12 @@ export default function DashboardLayout({
       </main>
 
       {/* Mobile Navigation Bottom Bar */}
-      <nav className="md:hidden fixed bottom-0 w-full bg-surface border-t-2 border-border flex justify-around p-3 pb-safe z-50">
-        <MobileNavItem href="/dashboard/student" icon={<Home size={24} />} label="Home" />
-        <MobileNavItem href="/dashboard/student/leaderboard" icon={<Trophy size={24} />} label="Leaderboard" />
-        <MobileNavItem href="/dashboard/student/tutor" icon={<Bot size={24} />} label="AI Tutor" />
-        <MobileNavItem href="/dashboard/student/profile" icon={<User size={24} />} label="Profile" />
+      <nav className="md:hidden fixed bottom-0 w-full bg-surface border-t-2 border-border flex justify-around p-2 pb-safe z-50">
+        <MobileNavItem href="/dashboard/student" icon={<Home size={22} />} label="Home" />
+        <MobileNavItem href="/dashboard/student/practice" icon={<Gamepad size={22} />} label="Practice" />
+        <MobileNavItem href="/dashboard/student/leaderboard" icon={<Trophy size={22} />} label="Rank" />
+        <MobileNavItem href="/dashboard/student/tutor" icon={<Bot size={22} />} label="Tutor" />
+        <MobileNavItem href="/dashboard/student/profile" icon={<User size={22} />} label="Profile" />
       </nav>
     </div>
   );

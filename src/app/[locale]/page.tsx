@@ -1,8 +1,33 @@
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Trophy, Users, Zap } from 'lucide-react';
+import { useTelegram } from '@/components/auth/TelegramProvider';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function LandingPage() {
+  const { isTelegramApp } = useTelegram();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isTelegramApp) {
+      router.push('/login');
+    }
+  }, [isTelegramApp, router]);
+
+  if (isTelegramApp) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+        <div className="animate-pulse flex flex-col items-center gap-4">
+          <BookOpen className="h-12 w-12 text-primary animate-bounce" />
+          <p className="font-bold">Opening StudyArena...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-6 lg:px-14 py-4 flex items-center justify-between border-b-2 border-border bg-surface">
