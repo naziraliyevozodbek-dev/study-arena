@@ -3,18 +3,22 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Flame, Star, Target, CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { useTelegram } from "@/components/auth/TelegramProvider";
 
 export default function StudentDashboard() {
+  const { user } = useTelegram();
+  const userName = user?.first_name ? `${user.first_name} ${user.last_name || ''}` : "Felix Student";
+  const userPhoto = user?.photo_url || "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix";
   return (
     <div className="p-4 md:p-8 max-w-5xl mx-auto space-y-8">
       {/* Top Stats Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-surface p-6 rounded-3xl border-2 border-border shadow-sm">
         <div className="flex items-center gap-4">
-          <div className="h-16 w-16 bg-muted rounded-full border-4 border-primary/20 overflow-hidden">
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" />
+          <div className="h-16 w-16 bg-muted rounded-full border-4 border-primary/20 overflow-hidden flex-shrink-0">
+            <img src={userPhoto} alt="Avatar" className="w-full h-full object-cover" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Felix Student</h2>
+            <h2 className="text-2xl font-bold">{userName}</h2>
             <p className="text-muted-foreground font-medium">Level 5 Scholar</p>
           </div>
         </div>
